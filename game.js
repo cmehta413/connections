@@ -2,25 +2,25 @@
 const gameData = {
     groups: [
         {
-            words: ['NOODLE', 'CRONUT', 'PUFNSTUF', 'DELIBERATE'],
-            category: 'Things that are made up words',
-            difficulty: 'yellow'
-        },
-        {
-            words: ['MIRROR', 'REFLECT', 'COMPACT', 'TWEEZERS'],
-            category: 'Things you might find in a bathroom',
-            difficulty: 'green'
-        },
-        {
-            words: ['MUSE', 'CRANIUM', 'BRUSH', 'NAIL FILE'],
-            category: 'Things related to beauty or grooming',
-            difficulty: 'blue'
-        },
-        {
-            words: ['DENSE', 'TIGHT', 'THICK', 'LUNAR'],
-            category: 'Words that can describe texture or density',
-            difficulty: 'purple'
-        }
+            "category": "Alternate Personas / Eras",
+            "difficulty": "extremely difficult",
+            "words": ["Lizzy Grant", "May Jailer", "Sparkle Jump Rope Queen", "Lanita"]
+          },
+          {
+            "category": "American Decay Aesthetic",
+            "difficulty": "extremely difficult",
+            "words": ["Cherry Coke", "Motel Sign", "Gas Station", "Cheerleader Uniform"]
+          },
+          {
+            "category": "Daddy Figures / Power Dynamics",
+            "difficulty": "extremely difficult",
+            "words": ["Sugar Daddy", "Pastor’s Son", "Cop", "Record Producer"]
+          },
+          {
+            "category": "Spiritual & Mystical Lore",
+            "difficulty": "extremely difficult",
+            "words": ["The Grants", "God Bless America", "California Witches", "Blue Hydrangea"]
+          }
     ],
     allWords: []
 };
@@ -302,7 +302,6 @@ function handleIncorrectGuess() {
 
 // Handle game win
 function handleGameWin() {
-    showMessage('🎉 Congratulations! You found all four groups! 🎉', 'success');
     updateStats(true);
     
     // Disable all tiles
@@ -313,6 +312,13 @@ function handleGameWin() {
     // Disable buttons
     document.getElementById('submitBtn').disabled = true;
     document.getElementById('deselectBtn').disabled = true;
+    
+    // Show winner modal
+    setTimeout(() => {
+        const winnerModal = document.getElementById('winnerModal');
+        winnerModal.style.display = 'block';
+        createConfetti();
+    }, 1500);
 }
 
 // Handle game lose
@@ -437,9 +443,23 @@ function setupEventListeners() {
     // Close modal when clicking outside
     window.addEventListener('click', (e) => {
         if (e.target.classList.contains('modal')) {
-            e.target.style.display = 'none';
+            // Don't allow closing winner modal by clicking outside
+            if (e.target.id !== 'winnerModal') {
+                e.target.style.display = 'none';
+            }
         }
     });
+    
+    // Winner modal close button (if we add one later)
+    const winnerModal = document.getElementById('winnerModal');
+    if (winnerModal) {
+        // Allow clicking anywhere on winner modal to close it after a delay
+        setTimeout(() => {
+            winnerModal.addEventListener('click', () => {
+                winnerModal.style.display = 'none';
+            });
+        }, 3000);
+    }
     
     // Hint button (shows a random hint)
     document.getElementById('hintBtn').addEventListener('click', () => {
@@ -455,6 +475,36 @@ function setupEventListeners() {
             showMessage('You\'ve completed all groups!', 'success');
         }
     });
+}
+
+// Create confetti animation
+function createConfetti() {
+    const confettiContainer = document.querySelector('.confetti-container');
+    if (!confettiContainer) return;
+    
+    confettiContainer.innerHTML = '';
+    const colors = ['#ff1493', '#ff69b4', '#ffb6c1', '#89cff0', '#1e90ff', '#fff', '#ffd700'];
+    const emojis = ['✨', '💗', '💙', '🎉', '⭐', '💫', '🌸'];
+    
+    for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.animationDelay = Math.random() * 2 + 's';
+        confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+        
+        // Randomly choose emoji or colored square
+        if (Math.random() > 0.5) {
+            confetti.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            confetti.style.fontSize = (Math.random() * 10 + 15) + 'px';
+        } else {
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.width = (Math.random() * 8 + 5) + 'px';
+            confetti.style.height = (Math.random() * 8 + 5) + 'px';
+        }
+        
+        confettiContainer.appendChild(confetti);
+    }
 }
 
 // Initialize game when page loads
