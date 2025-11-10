@@ -2,23 +2,23 @@
 const gameData = {
     groups: [
         {
-            words: ['CHERRY COKE', 'COP', 'MAY JAILER', 'MOTEL SIGN'],
-            category: 'Lana Del Rey song references',
+            words: ['NOODLE', 'CRONUT', 'PUFNSTUF', 'DELIBERATE'],
+            category: 'Things that are made up words',
             difficulty: 'yellow'
         },
         {
-            words: ['PASTOR\'S SON', 'SPARKLE JUMP ROPE QUEEN', 'GOD BLESS AMERICA', 'GAS STATION'],
-            category: 'Lana Del Rey Americana imagery',
+            words: ['MIRROR', 'REFLECT', 'COMPACT', 'TWEEZERS'],
+            category: 'Things you might find in a bathroom',
             difficulty: 'green'
         },
         {
-            words: ['THE GRANTS', 'RECORD PRODUCER', 'LIZZY GRANT', 'BLUE HYDRANGEA'],
-            category: 'Lana Del Rey personal references',
+            words: ['MUSE', 'CRANIUM', 'BRUSH', 'NAIL FILE'],
+            category: 'Things related to beauty or grooming',
             difficulty: 'blue'
         },
         {
-            words: ['LANITA', 'CALIFORNIA WITCHES', 'SUGAR DADDY', 'CHEERLEADER UNIFORM'],
-            category: 'Lana Del Rey character names',
+            words: ['DENSE', 'TIGHT', 'THICK', 'LUNAR'],
+            category: 'Words that can describe texture or density',
             difficulty: 'purple'
         }
     ],
@@ -35,34 +35,49 @@ let gameState = {
 
 // Theme management
 function initTheme() {
-    // Load saved theme preference
-    const savedTheme = localStorage.getItem('connectionsTheme') || 'hot-pink';
-    setTheme(savedTheme);
-    
-    // Setup theme toggle button
+    // Setup theme toggle button first
     const themeToggle = document.getElementById('themeToggle');
-    themeToggle.addEventListener('click', toggleTheme);
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+        
+        // Load saved theme preference and apply it
+        const savedTheme = localStorage.getItem('connectionsTheme') || 'hot-pink';
+        setTheme(savedTheme);
+    }
 }
 
 function setTheme(theme) {
     const body = document.body;
     const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = themeToggle ? themeToggle.querySelector('.theme-icon') : null;
     
     if (theme === 'baby-blue') {
         body.classList.add('theme-baby-blue');
-        themeToggle.title = 'Switch to Hot Pink theme';
-        themeToggle.querySelector('.theme-icon').textContent = '💙';
+        if (themeToggle) {
+            themeToggle.title = 'Switch to Hot Pink theme';
+        }
+        if (themeIcon) {
+            themeIcon.textContent = '💙';
+        }
     } else {
         body.classList.remove('theme-baby-blue');
-        themeToggle.title = 'Switch to Baby Blue theme';
-        themeToggle.querySelector('.theme-icon').textContent = '💗';
+        if (themeToggle) {
+            themeToggle.title = 'Switch to Baby Blue theme';
+        }
+        if (themeIcon) {
+            themeIcon.textContent = '💗';
+        }
     }
     
     // Save preference
     localStorage.setItem('connectionsTheme', theme);
 }
 
-function toggleTheme() {
+function toggleTheme(event) {
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
     const currentTheme = localStorage.getItem('connectionsTheme') || 'hot-pink';
     const newTheme = currentTheme === 'hot-pink' ? 'baby-blue' : 'hot-pink';
     setTheme(newTheme);
