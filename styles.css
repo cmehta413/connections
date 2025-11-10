@@ -367,6 +367,160 @@ header {
     line-height: 1.6;
 }
 
+/* Winner Modal Styles */
+.winner-modal-content {
+    text-align: center;
+    animation: winnerPopIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    max-width: 600px;
+    position: relative;
+    overflow: visible;
+}
+
+.winner-content {
+    position: relative;
+    z-index: 1;
+}
+
+.lana-image-container {
+    margin: 20px auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 40px rgba(255, 20, 147, 0.5);
+    animation: imageFloat 3s ease-in-out infinite;
+    position: relative;
+}
+
+.lana-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.lana-image:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.winner-title {
+    font-size: 36px;
+    margin: 30px 0 15px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.5);
+    animation: titleBounce 1s ease-in-out infinite;
+    color: #fff;
+    font-weight: bold;
+}
+
+.winner-subtitle {
+    font-size: 20px;
+    margin: 15px 0;
+    color: rgba(255, 255, 255, 0.95);
+    font-style: italic;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: subtitleFade 2s ease-in-out infinite;
+}
+
+.confetti-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.confetti {
+    position: absolute;
+    top: -10px;
+    animation: confettiFall linear forwards;
+    border-radius: 2px;
+}
+
+@keyframes winnerPopIn {
+    0% {
+        transform: scale(0) rotate(-180deg);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.1) rotate(10deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes imageFloat {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+    50% {
+        transform: translateY(-5px) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-10px) rotate(-2deg);
+    }
+}
+
+@keyframes titleBounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes subtitleFade {
+    0%, 100% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(600px) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Add sparkle effect to winner modal */
+.winner-modal-content::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: sparkle 10s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes sparkle {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    100% {
+        transform: translate(50px, 50px) rotate(360deg);
+    }
+}
+
 @media (max-width: 600px) {
     .game-grid {
         gap: 8px;
@@ -386,6 +540,19 @@ header {
         padding: 10px 16px;
         font-size: 14px;
         min-width: 100px;
+    }
+    
+    .winner-title {
+        font-size: 28px;
+    }
+    
+    .lana-image-container {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .winner-subtitle {
+        font-size: 16px;
     }
 }
 
