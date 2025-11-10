@@ -2,25 +2,25 @@
 const gameData = {
     groups: [
         {
-            words: ['NOODLE', 'CRONUT', 'PUFNSTUF', 'DELIBERATE'],
-            category: 'Things that are made up words',
-            difficulty: 'yellow'
-        },
-        {
-            words: ['MIRROR', 'REFLECT', 'COMPACT', 'TWEEZERS'],
-            category: 'Things you might find in a bathroom',
-            difficulty: 'green'
-        },
-        {
-            words: ['MUSE', 'CRANIUM', 'BRUSH', 'NAIL FILE'],
-            category: 'Things related to beauty or grooming',
-            difficulty: 'blue'
-        },
-        {
-            words: ['DENSE', 'TIGHT', 'THICK', 'LUNAR'],
-            category: 'Words that can describe texture or density',
-            difficulty: 'purple'
-        }
+            "category": "Alternate Personas / Eras",
+            "difficulty": "extremely difficult",
+            "words": ["Lizzy Grant", "May Jailer", "Sparkle Jump Rope Queen", "Lanita"]
+          },
+          {
+            "category": "American Decay Aesthetic",
+            "difficulty": "extremely difficult",
+            "words": ["Cherry Coke", "Motel Sign", "Gas Station", "Cheerleader Uniform"]
+          },
+          {
+            "category": "Daddy Figures / Power Dynamics",
+            "difficulty": "extremely difficult",
+            "words": ["Sugar Daddy", "Pastor’s Son", "Cop", "Record Producer"]
+          },
+          {
+            "category": "Spiritual & Mystical Lore",
+            "difficulty": "extremely difficult",
+            "words": ["The Grants", "God Bless America", "California Witches", "Blue Hydrangea"]
+          }
     ],
     allWords: []
 };
