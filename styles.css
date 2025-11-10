@@ -4,11 +4,32 @@
     box-sizing: border-box;
 }
 
+:root {
+    /* Hot Pink Theme (default) */
+    --theme-bg-gradient: linear-gradient(135deg, #ff1493 0%, #ff69b4 50%, #ffb6c1 100%);
+    --theme-primary: #ff1493;
+    --theme-primary-light: #ff69b4;
+    --theme-primary-lighter: #ffb6c1;
+    --theme-tile-text: #ff1493;
+    --theme-modal-gradient: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+}
+
+body.theme-baby-blue {
+    /* Baby Blue Theme */
+    --theme-bg-gradient: linear-gradient(135deg, #89cff0 0%, #b0e0e6 50%, #e0f6ff 100%);
+    --theme-primary: #1e90ff;
+    --theme-primary-light: #4da6ff;
+    --theme-primary-lighter: #89cff0;
+    --theme-tile-text: #1e90ff;
+    --theme-modal-gradient: linear-gradient(135deg, #1e90ff 0%, #4da6ff 100%);
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: linear-gradient(135deg, #ff1493 0%, #ff69b4 50%, #ffb6c1 100%);
+    background: var(--theme-bg-gradient);
     min-height: 100vh;
     color: #fff;
+    transition: background 0.5s ease;
 }
 
 .container {
@@ -30,6 +51,37 @@ header {
     font-weight: bold;
     color: #fff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle-container {
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggle {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #fff;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1) rotate(15deg);
+}
+
+.theme-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
 }
 
 .game-header {
@@ -96,7 +148,7 @@ header {
 
 .word-tile {
     background: rgba(255, 255, 255, 0.95);
-    color: #ff1493;
+    color: var(--theme-tile-text);
     padding: 20px 10px;
     border-radius: 8px;
     text-align: center;
@@ -120,7 +172,7 @@ header {
 }
 
 .word-tile.selected {
-    background: #ff1493;
+    background: var(--theme-primary);
     color: #fff;
     border-color: #fff;
     transform: scale(1.05);
@@ -260,7 +312,7 @@ header {
 }
 
 .modal-content {
-    background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+    background: var(--theme-modal-gradient);
     margin: 15% auto;
     padding: 30px;
     border: 3px solid #fff;
@@ -269,6 +321,7 @@ header {
     max-width: 500px;
     color: #fff;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: background 0.5s ease;
 }
 
 .close {

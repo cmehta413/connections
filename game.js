@@ -33,8 +33,46 @@ let gameState = {
     shuffled: false
 };
 
+// Theme management
+function initTheme() {
+    // Load saved theme preference
+    const savedTheme = localStorage.getItem('connectionsTheme') || 'hot-pink';
+    setTheme(savedTheme);
+    
+    // Setup theme toggle button
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', toggleTheme);
+}
+
+function setTheme(theme) {
+    const body = document.body;
+    const themeToggle = document.getElementById('themeToggle');
+    
+    if (theme === 'baby-blue') {
+        body.classList.add('theme-baby-blue');
+        themeToggle.title = 'Switch to Hot Pink theme';
+        themeToggle.querySelector('.theme-icon').textContent = '💙';
+    } else {
+        body.classList.remove('theme-baby-blue');
+        themeToggle.title = 'Switch to Baby Blue theme';
+        themeToggle.querySelector('.theme-icon').textContent = '💗';
+    }
+    
+    // Save preference
+    localStorage.setItem('connectionsTheme', theme);
+}
+
+function toggleTheme() {
+    const currentTheme = localStorage.getItem('connectionsTheme') || 'hot-pink';
+    const newTheme = currentTheme === 'hot-pink' ? 'baby-blue' : 'hot-pink';
+    setTheme(newTheme);
+}
+
 // Initialize game
 function initGame() {
+    // Initialize theme
+    initTheme();
+    
     // Flatten all words from groups
     gameData.allWords = gameData.groups.flatMap(group => group.words);
     
