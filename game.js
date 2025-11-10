@@ -2,23 +2,23 @@
 const gameData = {
     groups: [
         {
-            words: ['NOODLE', 'CRONUT', 'PUFNSTUF', 'DELIBERATE'],
-            category: 'Things that are made up words',
+            words: ['CHERRY COKE', 'COP', 'MAY JAILER', 'MOTEL SIGN'],
+            category: 'Lana Del Rey song references',
             difficulty: 'yellow'
         },
         {
-            words: ['MIRROR', 'REFLECT', 'COMPACT', 'TWEEZERS'],
-            category: 'Things you might find in a bathroom',
+            words: ['PASTOR\'S SON', 'SPARKLE JUMP ROPE QUEEN', 'GOD BLESS AMERICA', 'GAS STATION'],
+            category: 'Lana Del Rey Americana imagery',
             difficulty: 'green'
         },
         {
-            words: ['MUSE', 'CRANIUM', 'BRUSH', 'NAIL FILE'],
-            category: 'Things related to beauty or grooming',
+            words: ['THE GRANTS', 'RECORD PRODUCER', 'LIZZY GRANT', 'BLUE HYDRANGEA'],
+            category: 'Lana Del Rey personal references',
             difficulty: 'blue'
         },
         {
-            words: ['DENSE', 'TIGHT', 'THICK', 'LUNAR'],
-            category: 'Words that can describe texture or density',
+            words: ['LANITA', 'CALIFORNIA WITCHES', 'SUGAR DADDY', 'CHEERLEADER UNIFORM'],
+            category: 'Lana Del Rey character names',
             difficulty: 'purple'
         }
     ],

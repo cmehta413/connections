@@ -215,6 +215,19 @@ header {
     color: #fff;
 }
 
+.game-status p {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#mistakesRemaining {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1;
+}
+
 .mistakes-indicator {
     display: inline-flex;
     gap: 8px;
@@ -222,16 +235,21 @@ header {
 }
 
 .mistake-dot {
+    display: inline-block;
     width: 12px;
     height: 12px;
     min-width: 12px;
     min-height: 12px;
+    max-width: 12px;
+    max-height: 12px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.5);
     border: 2px solid rgba(255, 255, 255, 0.8);
     box-sizing: border-box;
     flex-shrink: 0;
-    aspect-ratio: 1;
+    aspect-ratio: 1 / 1;
+    line-height: 1;
+    vertical-align: middle;
 }
 
 .mistake-dot.lost {
