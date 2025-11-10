@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connections - Word Puzzle Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-left">
+                <div class="logo">Connections</div>
+            </div>
+        </header>
+
+        <div class="game-header">
+            <h1 class="game-title">Connections</h1>
+            <div class="game-date" id="gameDate"></div>
+        </div>
+
+        <div class="game-instructions">
+            <p>Create four groups of four!</p>
+            <div class="icon-buttons">
+                <button class="icon-btn" id="hintBtn" title="Hint">💡</button>
+                <button class="icon-btn" id="statsBtn" title="Stats">📊</button>
+                <button class="icon-btn" id="helpBtn" title="Help">?</button>
+            </div>
+        </div>
+
+        <div class="game-grid" id="gameGrid"></div>
+
+        <div class="game-status">
+            <p>Mistakes Remaining: <span id="mistakesRemaining"></span></p>
+        </div>
+
+        <div class="game-controls">
+            <button class="control-btn" id="shuffleBtn">Shuffle</button>
+            <button class="control-btn" id="deselectBtn" disabled>Deselect All</button>
+            <button class="control-btn" id="submitBtn" disabled>Submit</button>
+        </div>
+
+        <div class="message" id="message"></div>
+    </div>
+
+    <div class="modal" id="helpModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>How to Play</h2>
+            <p>Find groups of four items that share something in common.</p>
+            <p>Select four items and tap 'Submit' to check if your guess is correct.</p>
+            <p>Find all four groups before you run out of mistakes!</p>
+        </div>
+    </div>
+
+    <div class="modal" id="statsModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Statistics</h2>
+            <div id="statsContent">
+                <p>Games Played: <span id="gamesPlayed">0</span></p>
+                <p>Games Won: <span id="gamesWon">0</span></p>
+                <p>Current Streak: <span id="currentStreak">0</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
+
