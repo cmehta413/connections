@@ -22,6 +22,7 @@ const gameData = {
           "words": ["Ride", "National Anthem", "Cola", "Brooklyn Baby"]
         }
       ],
+
     allWords: []
 };
 
