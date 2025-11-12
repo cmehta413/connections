@@ -2,26 +2,27 @@
 const gameData = {
     groups: [
         {
-            "category": "Alternate Personas / Eras",
-            "difficulty": "extremely difficult",
-            "words": ["Lizzy Grant", "May Jailer", "Sparkle Jump Rope Queen", "Lanita"]
-          },
-          {
-            "category": "American Decay Aesthetic",
-            "difficulty": "extremely difficult",
-            "words": ["Cherry Coke", "Motel Sign", "Gas Station", "Cheerleader Uniform"]
-          },
-          {
-            "category": "Daddy Figures / Power Dynamics",
-            "difficulty": "extremely difficult",
-            "words": ["Sugar Daddy", "Pastor’s Son", "Cop", "Record Producer"]
-          },
-          {
-            "category": "Spiritual & Mystical Lore",
-            "difficulty": "extremely difficult",
-            "words": ["The Grants", "God Bless America", "California Witches", "Blue Hydrangea"]
-          }
-    ],
+          "category": "Songs Mentioning California",
+          "difficulty": "extremely difficult",
+          "words": ["Venice Bitch", "West Coast", "Mariners Apartment Complex", "The Grants"]
+        },
+        {
+          "category": "References to Death or Heaven",
+          "difficulty": "extremely difficult",
+          "words": ["Born to Die", "Carmen", "Dark Paradise", "Black Bathing Suit"]
+        },
+        {
+          "category": "Men Named or Referenced in Songs",
+          "difficulty": "extremely difficult",
+          "words": ["Norman Rockwell", "Jimmy Gnecco", "Tommy", "James Dean"]
+        },
+        {
+          "category": "American Iconography",
+          "difficulty": "extremely difficult",
+          "words": ["Ride", "National Anthem", "Cola", "Brooklyn Baby"]
+        }
+      ],
+
     allWords: []
 };
 
