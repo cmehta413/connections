@@ -1,25 +1,25 @@
 // Game data - word groups and their categories
 const gameData = {
-    groups: [
+    groups:  [
         {
-          "category": "Songs Mentioning California",
+          "category": "Color Symbolism in Titles",
           "difficulty": "extremely difficult",
-          "words": ["Venice Bitch", "West Coast", "Mariners Apartment Complex", "The Grants"]
+          "words": ["Pink + White", "White Mustang", "Cherry", "Venice Bitch"]
         },
         {
-          "category": "References to Death or Heaven",
+          "category": "Toxic or Obsessive Love",
           "difficulty": "extremely difficult",
-          "words": ["Born to Die", "Carmen", "Dark Paradise", "Black Bathing Suit"]
+          "words": ["IFHY", "Kill Bill", "Pretty When You Cry", "She"]
         },
         {
-          "category": "Men Named or Referenced in Songs",
+          "category": "Escapist Fantasies and Dream Worlds",
           "difficulty": "extremely difficult",
-          "words": ["Norman Rockwell", "Jimmy Gnecco", "Tommy", "James Dean"]
+          "words": ["See You Again", "Ride", "Sweet Life", "Lust For Life"]
         },
         {
-          "category": "American Iconography",
+          "category": "Self-Mythology and Alter Egos",
           "difficulty": "extremely difficult",
-          "words": ["Ride", "National Anthem", "Cola", "Brooklyn Baby"]
+          "words": ["Flower Boy", "Supermodel", "Garden (Say It Like Dat)", "Nikes"]
         }
       ],
     allWords: []
