@@ -381,27 +381,26 @@ header {
     z-index: 1;
 }
 
-.lana-image-container {
+.music-icon-container {
     margin: 20px auto;
     width: 200px;
     height: 200px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 5px solid #fff;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 40px rgba(255, 20, 147, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     animation: imageFloat 3s ease-in-out infinite;
     position: relative;
 }
 
-.lana-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.music-icon {
+    font-size: 120px;
+    animation: musicBounce 1.5s ease-in-out infinite;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
     transition: transform 0.3s ease;
 }
 
-.lana-image:hover {
-    transform: scale(1.1) rotate(5deg);
+.music-icon:hover {
+    transform: scale(1.2) rotate(15deg);
 }
 
 .winner-title {
@@ -466,6 +465,21 @@ header {
     }
     75% {
         transform: translateY(-10px) rotate(-2deg);
+    }
+}
+
+@keyframes musicBounce {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
+        transform: scale(1.1) rotate(-5deg);
+    }
+    50% {
+        transform: scale(1.15) rotate(0deg);
+    }
+    75% {
+        transform: scale(1.1) rotate(5deg);
     }
 }
 
@@ -546,9 +560,13 @@ header {
         font-size: 28px;
     }
     
-    .lana-image-container {
+    .music-icon-container {
         width: 150px;
         height: 150px;
+    }
+    
+    .music-icon {
+        font-size: 90px;
     }
     
     .winner-subtitle {
