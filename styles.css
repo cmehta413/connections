@@ -193,8 +193,54 @@ header {
 }
 
 .word-tile.completed {
-    opacity: 0.6;
+    opacity: 0.85;
     cursor: not-allowed;
+}
+
+/* Difficulty-based color coding for completed tiles */
+.word-tile.completed.difficulty-easy {
+    background: #f7da21;
+    color: #000;
+    border-color: #d4b91a;
+}
+
+.word-tile.completed.difficulty-medium {
+    background: #6cbf47;
+    color: #fff;
+    border-color: #5aa638;
+}
+
+.word-tile.completed.difficulty-hard {
+    background: #3a86ff;
+    color: #fff;
+    border-color: #2d6acc;
+}
+
+.word-tile.completed.difficulty-extremely-difficult {
+    background: #9d4edd;
+    color: #fff;
+    border-color: #7b2cbf;
+}
+
+/* Also apply difficulty colors to correct tiles during animation */
+.word-tile.correct.difficulty-easy {
+    background: #f7da21;
+    color: #000;
+}
+
+.word-tile.correct.difficulty-medium {
+    background: #6cbf47;
+    color: #fff;
+}
+
+.word-tile.correct.difficulty-hard {
+    background: #3a86ff;
+    color: #fff;
+}
+
+.word-tile.correct.difficulty-extremely-difficult {
+    background: #9d4edd;
+    color: #fff;
 }
 
 @keyframes correctPulse {

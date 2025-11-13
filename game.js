@@ -3,17 +3,17 @@ const gameData = {
     groups:  [
         {
           "category": "Color Symbolism in Titles",
-          "difficulty": "extremely difficult",
+          "difficulty": "easy",
           "words": ["Pink + White", "White Mustang", "Cherry", "Venice Bitch"]
         },
         {
           "category": "Toxic or Obsessive Love",
-          "difficulty": "extremely difficult",
+          "difficulty": "medium",
           "words": ["IFHY", "Kill Bill", "Pretty When You Cry", "She"]
         },
         {
           "category": "Escapist Fantasies and Dream Worlds",
-          "difficulty": "extremely difficult",
+          "difficulty": "hard",
           "words": ["See You Again", "Ride", "Sweet Life", "Lust For Life"]
         },
         {
@@ -134,13 +134,16 @@ function renderGrid() {
         tile.textContent = word;
         tile.dataset.word = word;
         
-        // Check if word is in a completed group
-        const isCompleted = gameState.completedGroups.some(group => 
+        // Check if word is in a completed group and get its difficulty
+        const completedGroup = gameState.completedGroups.find(group => 
             group.words.includes(word)
         );
         
-        if (isCompleted) {
+        if (completedGroup) {
             tile.classList.add('completed');
+            // Add difficulty class for color coding
+            const difficultyClass = `difficulty-${completedGroup.difficulty.replace(/\s+/g, '-')}`;
+            tile.classList.add(difficultyClass);
             tile.style.cursor = 'not-allowed';
         } else {
             tile.addEventListener('click', () => toggleWordSelection(word));
@@ -179,10 +182,39 @@ function toggleWordSelection(word) {
     updateControlButtons();
 }
 
+// Check for "one away" (3/4 words from a group)
+function checkOneAway() {
+    if (gameState.selectedWords.length !== 3) {
+        return;
+    }
+    
+    const selectedSet = new Set(gameState.selectedWords);
+    
+    // Check each group to see if 3 out of 4 words are selected
+    for (const group of gameData.groups) {
+        // Skip if group is already completed
+        if (gameState.completedGroups.some(g => g.category === group.category)) {
+            continue;
+        }
+        
+        const groupWords = new Set(group.words);
+        const matchingWords = [...selectedSet].filter(word => groupWords.has(word));
+        
+        if (matchingWords.length === 3) {
+            const missingWord = [...groupWords].find(word => !selectedSet.has(word));
+            showMessage(`One away! One more word needed from this group.`, 'info', 5000);
+            return true;
+        }
+    }
+    
+    return false;
+}
+
 // Update control buttons state
 function updateControlButtons() {
     const deselectBtn = document.getElementById('deselectBtn');
     const submitBtn = document.getElementById('submitBtn');
+    const messageEl = document.getElementById('message');
     
     if (gameState.selectedWords.length > 0) {
         deselectBtn.disabled = false;
@@ -194,6 +226,15 @@ function updateControlButtons() {
         submitBtn.disabled = false;
     } else {
         submitBtn.disabled = true;
+    }
+    
+    // Check for "one away" when 3 words are selected
+    if (gameState.selectedWords.length === 3) {
+        checkOneAway();
+    } else if (gameState.selectedWords.length !== 3 && messageEl.textContent.includes('One away')) {
+        // Clear "one away" message if selection count changes away from 3
+        messageEl.textContent = '';
+        messageEl.className = 'message';
     }
 }
 
@@ -242,11 +283,14 @@ function submitGuess() {
 function handleCorrectGuess(group) {
     gameState.completedGroups.push(group);
     
-    // Mark tiles as correct
+    // Mark tiles as correct with difficulty class
     gameState.selectedWords.forEach(word => {
         const tile = document.querySelector(`[data-word="${word}"]`);
         if (tile) {
             tile.classList.add('correct');
+            // Add difficulty class for color coding
+            const difficultyClass = `difficulty-${group.difficulty.replace(/\s+/g, '-')}`;
+            tile.classList.add(difficultyClass);
             tile.classList.remove('selected');
         }
     });
@@ -262,7 +306,7 @@ function handleCorrectGuess(group) {
         if (gameState.completedGroups.length === 4) {
             handleGameWin();
         } else {
-            // Re-render to show completed state
+            // Re-render to show completed state with proper colors
             renderGrid();
         }
     }, 1500);
@@ -359,16 +403,19 @@ function updateMistakesDisplay() {
 }
 
 // Show message
-function showMessage(text, type = 'info') {
+function showMessage(text, type = 'info', duration = 3000) {
     const messageEl = document.getElementById('message');
     messageEl.textContent = text;
     messageEl.className = `message ${type}`;
     
-    // Clear message after 3 seconds
+    // Clear message after specified duration (longer for "one away" messages)
     setTimeout(() => {
-        messageEl.textContent = '';
-        messageEl.className = 'message';
-    }, 3000);
+        // Only clear if the message hasn't changed
+        if (messageEl.textContent === text) {
+            messageEl.textContent = '';
+            messageEl.className = 'message';
+        }
+    }, duration);
 }
 
 // Shuffle button handler
