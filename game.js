@@ -9,7 +9,7 @@ const gameData = {
         {
             "category": "Book titles with animals",
             "difficulty": "medium",
-            "words": ["Animal Farm,", "Of Mice and Men", "Charlotte's Web", "The Cat in the Hat"]
+            "words": ["Animal Farm", "Of Mice and Men", "Charlotte's Web", "The Cat in the Hat"]
         },
         {
             "category": "TV Shows Set in NYC",
