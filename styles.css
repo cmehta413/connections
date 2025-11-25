@@ -5,27 +5,27 @@
 }
 
 :root {
-    /* Hot Pink Theme (default) */
-    --theme-bg-gradient: linear-gradient(135deg, #ff0080 0%, #ff1493 25%, #ff69b4 50%, #ffb6c1 75%, #ffc0cb 100%);
-    --theme-primary: #ff1493;
-    --theme-primary-light: #ff69b4;
-    --theme-primary-lighter: #ffb6c1;
-    --theme-tile-text: #ff1493;
-    --theme-modal-gradient: linear-gradient(135deg, rgba(255, 20, 147, 0.95) 0%, rgba(255, 105, 180, 0.95) 100%);
-    --glass-bg: rgba(255, 255, 255, 0.1);
-    --glass-border: rgba(255, 255, 255, 0.3);
+    /* Harvest Glow Theme (default) */
+    --theme-bg-gradient: linear-gradient(135deg, #2d0f05 0%, #5a240a 25%, #8b3b0f 50%, #c96416 75%, #f4c87c 100%);
+    --theme-primary: #d97706;
+    --theme-primary-light: #f59e0b;
+    --theme-primary-lighter: #fde68a;
+    --theme-tile-text: #92400e;
+    --theme-modal-gradient: linear-gradient(135deg, rgba(91, 25, 6, 0.95) 0%, rgba(201, 100, 22, 0.95) 100%);
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.25);
 }
 
 body.theme-baby-blue {
-    /* Baby Blue Theme */
-    --theme-bg-gradient: linear-gradient(135deg, #0066cc 0%, #1e90ff 25%, #4da6ff 50%, #89cff0 75%, #b0e0e6 100%);
-    --theme-primary: #1e90ff;
-    --theme-primary-light: #4da6ff;
-    --theme-primary-lighter: #89cff0;
-    --theme-tile-text: #1e90ff;
-    --theme-modal-gradient: linear-gradient(135deg, rgba(30, 144, 255, 0.95) 0%, rgba(77, 166, 255, 0.95) 100%);
-    --glass-bg: rgba(255, 255, 255, 0.15);
-    --glass-border: rgba(255, 255, 255, 0.35);
+    /* Cranberry Twilight Theme */
+    --theme-bg-gradient: linear-gradient(135deg, #220b0b 0%, #4c1d1d 25%, #7f1d1d 50%, #991b1b 75%, #fca5a5 100%);
+    --theme-primary: #be123c;
+    --theme-primary-light: #f43f5e;
+    --theme-primary-lighter: #fecdd3;
+    --theme-tile-text: #7f1d1d;
+    --theme-modal-gradient: linear-gradient(135deg, rgba(127, 29, 29, 0.95) 0%, rgba(244, 63, 94, 0.95) 100%);
+    --glass-bg: rgba(255, 255, 255, 0.12);
+    --glass-border: rgba(255, 255, 255, 0.3);
 }
 
 body {
@@ -46,8 +46,9 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    background: radial-gradient(circle at 20% 40%, rgba(255, 224, 178, 0.18) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 200, 150, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.08) 0%, transparent 40%);
     pointer-events: none;
     z-index: 0;
 }
@@ -274,16 +275,16 @@ header {
 }
 
 .word-tile.correct {
-    background: #00ff00;
-    color: #000;
+    background: var(--theme-primary-light);
+    color: #fff;
     border-color: #fff;
     animation: correctPulse 0.5s ease;
 }
 
 .word-tile.incorrect {
-    background: #ff0000;
+    background: #b91c1c;
     color: #fff;
-    border-color: #fff;
+    border-color: #fee2e2;
     animation: shake 0.5s ease;
 }
 
@@ -294,48 +295,48 @@ header {
 
 /* Difficulty-based color coding for completed tiles */
 .word-tile.completed.difficulty-easy {
-    background: #f7da21;
-    color: #000;
-    border-color: #d4b91a;
+    background: #fbbf24;
+    color: #3b1f0a;
+    border-color: #d97706;
 }
 
 .word-tile.completed.difficulty-medium {
-    background: #6cbf47;
+    background: #f97316;
     color: #fff;
-    border-color: #5aa638;
+    border-color: #ea580c;
 }
 
 .word-tile.completed.difficulty-hard {
-    background: #3a86ff;
+    background: #b45309;
     color: #fff;
-    border-color: #2d6acc;
+    border-color: #92400e;
 }
 
 .word-tile.completed.difficulty-extremely-difficult {
-    background: #9d4edd;
-    color: #fff;
-    border-color: #7b2cbf;
+    background: #78350f;
+    color: #fde68a;
+    border-color: #451a03;
 }
 
 /* Also apply difficulty colors to correct tiles during animation */
 .word-tile.correct.difficulty-easy {
-    background: #f7da21;
-    color: #000;
+    background: #fbbf24;
+    color: #3b1f0a;
 }
 
 .word-tile.correct.difficulty-medium {
-    background: #6cbf47;
+    background: #f97316;
     color: #fff;
 }
 
 .word-tile.correct.difficulty-hard {
-    background: #3a86ff;
+    background: #b45309;
     color: #fff;
 }
 
 .word-tile.correct.difficulty-extremely-difficult {
-    background: #9d4edd;
-    color: #fff;
+    background: #78350f;
+    color: #fde68a;
 }
 
 @keyframes correctPulse {
@@ -554,7 +555,7 @@ header {
     z-index: 1;
 }
 
-.music-icon-container {
+.harvest-icon-container {
     margin: 20px auto;
     width: 200px;
     height: 200px;
@@ -563,26 +564,47 @@ header {
     justify-content: center;
     animation: imageFloat 3s ease-in-out infinite;
     position: relative;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 30%, rgba(255, 255, 255, 0.4), transparent 60%),
+                linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25), inset 0 1px 4px rgba(255, 255, 255, 0.4);
 }
 
-.music-icon {
+.harvest-icon-container::after {
+    content: '';
+    position: absolute;
+    inset: -15px;
+    border-radius: 50%;
+    border: 3px dashed rgba(255, 255, 255, 0.4);
+    animation: garlandSpin 12s linear infinite;
+    pointer-events: none;
+}
+
+.harvest-icon {
     font-size: 120px;
     animation: musicBounce 1.5s ease-in-out infinite;
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
-    transition: transform 0.3s ease;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.35));
+    transition: transform 0.3s ease, filter 0.3s ease;
+    text-shadow: 0 0 30px rgba(255, 186, 107, 0.8);
 }
 
-.music-icon:hover {
-    transform: scale(1.2) rotate(15deg);
+.harvest-icon:hover {
+    transform: scale(1.2) rotate(10deg);
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.45));
 }
 
 .winner-title {
     font-size: 36px;
     margin: 30px 0 15px;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.5);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.35), 0 0 20px rgba(255, 208, 138, 0.6);
     color: #fff;
     font-weight: bold;
     line-height: 1.5;
+    background: linear-gradient(120deg, #fff7e6 0%, #ffe0b2 50%, #ffd7ba 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .title-main {
@@ -594,6 +616,8 @@ header {
     display: inline-block;
     opacity: 0;
     animation: everFadeIn 0.8s ease-out forwards;
+    color: #ffedd5;
+    text-shadow: 0 0 12px rgba(255, 237, 213, 0.7);
 }
 
 .ever-1 {
@@ -615,6 +639,11 @@ header {
     font-style: italic;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     animation: subtitleFade 2s ease-in-out infinite;
+}
+
+.harvest-subtitle {
+    font-weight: 600;
+    letter-spacing: 0.4px;
 }
 
 .confetti-container {
@@ -679,6 +708,15 @@ header {
     }
 }
 
+@keyframes garlandSpin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 @keyframes titleFadeIn {
     0% {
         opacity: 0;
@@ -729,8 +767,8 @@ header {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
+    background: radial-gradient(circle, rgba(255, 236, 179, 0.15) 1px, transparent 1px);
+    background-size: 60px 60px;
     animation: sparkle 10s linear infinite;
     pointer-events: none;
 }
@@ -769,12 +807,12 @@ header {
         font-size: 28px;
     }
     
-    .music-icon-container {
+    .harvest-icon-container {
         width: 150px;
         height: 150px;
     }
     
-    .music-icon {
+    .harvest-icon {
         font-size: 90px;
     }
     

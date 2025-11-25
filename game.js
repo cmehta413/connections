@@ -1,27 +1,27 @@
 // Game data - word groups and their categories
 const gameData = {
-    groups: [
+    "groups": [
         {
-            "category": "Different ways to say cat",
-            "difficulty": "easy",
-            "words": ["Feline", "Kitty", "Tom", "Tabby"]
+          "category": "Thanksgiving Sides",
+          "difficulty": "easy",
+          "words": ["Stuffing", "Gravy", "Cranberries", "Rolls"]
         },
         {
-            "category": "Book titles with animals",
-            "difficulty": "medium",
-            "words": ["Animal Farm", "Of Mice and Men", "Charlotte's Web", "The Cat in the Hat"]
+          "category": "Autumn Objects",
+          "difficulty": "medium",
+          "words": ["Leaves", "Acorn", "Scarecrow", "Hay"]
         },
         {
-            "category": "TV Shows Set in NYC",
-            "difficulty": "hard",
-            "words": ["Friends", "Seinfeld", "Gossip Girl", "How I Met Your Mother"]
+          "category": "Things You Carve",
+          "difficulty": "hard",
+          "words": ["Turkey", "Pumpkin", "Ham", "Roast"]
         },
         {
-            "category": "I love you baby",
-            "difficulty": "extremely difficult",
-            "words": ["I", "Love", "You", "Baby"]
+          "category": "Phrases That Can Follow 'Turkey'",
+          "difficulty": "extremely difficult",
+          "words": ["Day", "Sandwich", "Trot", "Leftovers"]
         }
-    ],
+      ],
     allWords: []
 };
 
@@ -530,8 +530,8 @@ function createConfetti() {
     if (!confettiContainer) return;
 
     confettiContainer.innerHTML = '';
-    const colors = ['#ff1493', '#ff69b4', '#ffb6c1', '#89cff0', '#1e90ff', '#fff', '#ffd700'];
-    const emojis = ['✨', '💗', '💙', '🎉', '⭐', '💫', '🌸'];
+    const colors = ['#d97706', '#f97316', '#92400e', '#fbbf24', '#78350f', '#fde68a', '#b45309'];
+    const emojis = ['🍂', '🍁', '🌾', '🦃', '🥧', '🍗', '💛'];
 
     for (let i = 0; i < 50; i++) {
         const confetti = document.createElement('div');
